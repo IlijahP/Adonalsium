@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea53254a-b85e-4dbf-88a7-3e6fe572e638" name="Changes" comment="">
+    <list default="true" id="ea53254a-b85e-4dbf-88a7-3e6fe572e638" name="Changes" comment="Started the barebones of the notebook">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +52,9 @@
       <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium\Backup" />
       <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -61,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707023718700</updated>
       <workItem from="1707023725167" duration="14588000" />
-      <workItem from="1707077988850" duration="619000" />
+      <workItem from="1707077988850" duration="2883000" />
     </task>
     <task id="LOCAL-00001" summary="Started the barebones of the notebook">
       <option name="closed" value="true" />
@@ -79,13 +83,36 @@
       <option name="project" value="LOCAL" />
       <updated>1707041470100</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Started the barebones of the notebook">
+      <option name="closed" value="true" />
+      <created>1707078643955</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707078643955</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -94,6 +121,17 @@
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
                   <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </State>
