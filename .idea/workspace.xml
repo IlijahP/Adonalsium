@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea53254a-b85e-4dbf-88a7-3e6fe572e638" name="Changes" comment="Started the barebones of the notebook">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ea53254a-b85e-4dbf-88a7-3e6fe572e638" name="Changes" comment="Started the barebones of the notebook" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707023718700</updated>
       <workItem from="1707023725167" duration="14588000" />
-      <workItem from="1707077988850" duration="2883000" />
+      <workItem from="1707077988850" duration="3215000" />
     </task>
     <task id="LOCAL-00001" summary="Started the barebones of the notebook">
       <option name="closed" value="true" />
