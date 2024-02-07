@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea53254a-b85e-4dbf-88a7-3e6fe572e638" name="Changes" comment="Started the barebones of the notebook" />
+    <list default="true" id="ea53254a-b85e-4dbf-88a7-3e6fe572e638" name="Changes" comment="Started the barebones of the notebook">
+      <change afterPath="$PROJECT_DIR$/Backups/shards.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backups/Alias.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Backups/Alias.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backups/Rosharians.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Backups/Rosharians.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backups/slm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Backups/slm.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backups/yumi.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Backups/yumi.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Main.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/here.txt" beforeDir="false" afterPath="$PROJECT_DIR$/books/here.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/characters.csv" beforeDir="false" afterPath="$PROJECT_DIR$/characters.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combined_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combined_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edges.csv" beforeDir="false" afterPath="$PROJECT_DIR$/edges.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/nodes.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +32,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -35,7 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ilija/PycharmProjects/Adonalsium&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ilija/PycharmProjects/Adonalsium/books&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -46,10 +62,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium\books" />
       <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium\Backup" />
       <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium\Backups" />
       <recent name="C:\Users\Ilija\PycharmProjects\Adonalsium" />
     </key>
   </component>
@@ -62,7 +80,8 @@
       <option name="presentableId" value="Default" />
       <updated>1707023718700</updated>
       <workItem from="1707023725167" duration="14588000" />
-      <workItem from="1707077988850" duration="3215000" />
+      <workItem from="1707077988850" duration="13845000" />
+      <workItem from="1707107279790" duration="42634000" />
     </task>
     <task id="LOCAL-00001" summary="Started the barebones of the notebook">
       <option name="closed" value="true" />
