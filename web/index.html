@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adonalsium</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.2.2/sigma.require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.2.2/plugins/sigma.parsers.gexf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.2.2/plugins/sigma.renderers.parallelEdges.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+    <section class="node-container">
+      <div id="graph-container" class="nodes" style="width:100%;">
+        <div id="selected-nodes"></div>
+        <div class="node-controls">
+          <div class="search-container">
+          <input id="search-input" list="nodes-datalist" placeholder="Search for a node">
+        </div>
+        <datalist id="nodes-datalist"></datalist>
+          <button type="button" id="zoom-in-button" class="zoom-button zoom-in">+</button>
+          <button type="button" id="zoom-out-button" class="zoom-button zoom-out">-</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Link to your JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
