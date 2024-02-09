@@ -1,0 +1,72 @@
+body {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0; /* Reset default margin */
+}
+
+.node-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set to full viewport height */
+    padding: 0; /* Remove default padding */
+}
+
+.node-container #graph-container {
+    position: relative; /* Position the graph container relative for absolute positioning of elements inside it */
+    flex: 1; /* Take up remaining space */
+    width: 100%; /* Ensure full width */
+    height: calc(100% - 40px); /* Set height to 100% minus height of controls */
+    overflow: hidden; /* Hide overflow to prevent resizing */
+}
+
+.node-container #selected-nodes {
+    position: absolute; /* Position selected nodes container absolutely */
+    top: 0; /* Adjust top position as needed */
+    left: 50%; /* Adjust left position as needed */
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 3; /* Ensure it's above other elements */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.node-container #graph-container .node-controls {
+    position: absolute; /* Position controls absolutely */
+    top: 0; /* Position at bottom */
+    right: 10px; /* Adjust right spacing */
+    z-index: 2;
+}
+
+.node-container #graph-container .search-container {
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    color: #222a2a;
+    overflow: hidden;
+    height: 34px;
+}
+
+.node-container #graph-container input {
+    color: #222a2a;
+    border: none;
+    height: 34px;
+    padding: 0 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.node-container .zoom-button {
+    cursor: pointer;
+    color: #222a2a;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 20px;
+    font-weight: 700;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #222a2a;
+    width: 35px;
+    height: 35px;
+    margin-left: 5px; /* Add a little space between buttons */
+}
+
+.node-container .zoom-button:hover {
+    color: #2e3838;
+    background-color: #dffcff;
+}
