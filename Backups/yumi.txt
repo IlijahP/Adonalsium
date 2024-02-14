@@ -1,7 +1,6 @@
 Yumi
-Nikaro,Painter
-Hoid
-Design
+Nikaro
+Painter
 Liyun
 Akane
 Tojin
