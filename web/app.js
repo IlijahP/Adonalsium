@@ -19,9 +19,6 @@ sigma.classes.graph.addMethod('neighbors', function (nodeId) {
 
 // Define a function to map edge weights to colors dynamically
 function getEdgeColor(weight, maxWeight) {
-    
-    // Adjust this function to map your edge weights to colors as needed
-    // Here's a simple example: darker colors for higher weights
     var colorScale = ['', '#FFB14E', '#FA8775', '#EA5F94', '#CD34B5', '#9D02D7', '#0000FF', '#00008B'];
     var index = Math.floor(weight / maxWeight * (colorScale.length - 1));
     return colorScale[index];
@@ -40,18 +37,18 @@ var s = new sigma({
         minNodeSize: 1,
         maxNodeSize: 20,
         minEdgeSize: 0.1,
-        maxEdgeSize: 3,
+        maxEdgeSize: 4,
         defaultEdgeType: "curve", // only works on canvas renderer
         // labelColor: "node",
         defaultLabelColor: "#2d3937",
         defaultHoverLabelBGColor: "#171c1c",
         defaultLabelHoverColor: "#dffcff",
-        font: "Poppins",
+        font: "Noto Sans",
         drawLabels: true,
-        mouseWheelEnabled: false,
+        mouseWheelEnabled: true,
         doubleClickEnabled: false,
         touchEnabled: true,
-        
+
     },
 });
 
@@ -59,7 +56,7 @@ var s = new sigma({
 var maxWeight = 0;
 
 // Load data to the graph
-sigma.parsers.gexf("everythinggraph.gexf", s,
+sigma.parsers.gexf("/web/everythinggraph.gexf", s,
     function (s) {
         // Iterate over edges to find the maximum weight
         s.graph.edges().forEach(function (e) {
@@ -73,7 +70,7 @@ sigma.parsers.gexf("everythinggraph.gexf", s,
             n.label = n.label;
             n.color = getColor(n.attributes["modularity_class"]);
             n.originalColor = n.color;
-            n.inactiveColor = "#455454";
+            n.inactiveColor = "rgba(69, 84, 84, 0.6)";
             n.selectedColor = "#ffff00";
         });
         s.graph.edges().forEach(function (e) {
@@ -89,27 +86,52 @@ sigma.parsers.gexf("everythinggraph.gexf", s,
         var inputBox = document.getElementById('search-input');
         inputBox.addEventListener("change", searchChange);
 
-        var zoomInButton = document.getElementById('zoom-in-button');
-        zoomInButton.addEventListener("click", zoomIn);
-        var zoomOutButton = document.getElementById('zoom-out-button');
-        zoomOutButton.addEventListener("click", zoomOut);
-        
+
     });
 
 function searchChange(e) {
     var value = e.target.value;
+    var nodeFound = false;
 
-    // Add node to selected
+    // Check if node exists and toggle selection
     s.graph.nodes().forEach(function (n) {
-        if (n.label == value) {
-            if (!selected[n.id]) {
-                selected[n.id] = n;
+        if (n.label === value) {
+            nodeFound = true;
+            if (selected[n.id]) {
+                delete selected[n.id]; // Deselect if already selected
+            } else {
+                selected[n.id] = n; // Select if not already selected
             }
         }
     });
-    nodeSelect(s, selected);
-}
 
+    if (nodeFound) {
+        nodeSelect(s, selected);
+    } else {
+        // Optionally handle the case where the search term does not match any node
+    }
+
+    // Ensure input is cleared or refocus to allow re-searching the same node
+    e.target.value = '';
+}
+function selectNodeByLabel(label) {
+    var found = false;
+    s.graph.nodes().forEach(function (n) {
+        if (n.label === label) {
+            found = true;
+            if (!selected[n.id]) {
+                selected[n.id] = n;
+            } else {
+                delete selected[n.id];
+            }
+        }
+    });
+    if (found) {
+        nodeSelect(s, selected); // Assume nodeSelect handles graph updates for selection
+    } else {
+        // Handle case where label is not found, if necessary
+    }
+}
 function zoomIn() {
     var c = s.camera;
     c.goTo({
@@ -124,16 +146,27 @@ function zoomOut() {
     });
 }
 
+// Variables to track the initial camera position on mouse down
+var initialCameraX, initialCameraY;
+
+// Listen for mouse down to capture the initial camera position
+s.renderers[0].container.addEventListener('mousedown', function (e) {
+    initialCameraX = s.camera.x;
+    initialCameraY = s.camera.y;
+}, false);
+
 // Click event for node
 s.bind('clickNode', function (e) {
-    // Add or remove from selected array
-    if (!selected[e.data.node.id]) {
-        selected[e.data.node.id] = e.data.node;
-    } else {
-        delete selected[e.data.node.id];
+    var cameraMoved = initialCameraX !== s.camera.x || initialCameraY !== s.camera.y;
+    if (!cameraMoved) { // Only modify selection if the camera hasn't moved
+        // Add or remove from selected array
+        if (!selected[e.data.node.id]) {
+            selected[e.data.node.id] = e.data.node;
+        } else {
+            delete selected[e.data.node.id];
+        }
+        nodeSelect(s, selected);
     }
-
-    nodeSelect(s, selected);
 });
 
 // Mouse over event
@@ -148,11 +181,15 @@ s.bind('outNode', function (e) {
 
 // When the background is clicked, we reset the graph
 s.bind('clickStage', function (e) {
-    selected = [];
-    resetStates(s);
-    showSelectedNodes(selected);
-    s.refresh();
+    var cameraMoved = initialCameraX !== s.camera.x || initialCameraY !== s.camera.y;
+    if (!cameraMoved) { // Reset selections only if the camera hasn't moved
+        selected = [];
+        resetStates(s);
+        showSelectedNodes(selected);
+        s.refresh();
+    }
 });
+
 
 function populateSearchList(nodes) {
     var container = document.getElementById('nodes-datalist');
@@ -164,7 +201,7 @@ function populateSearchList(nodes) {
 }
 
 function getColor(modularityClass) {
-    
+
     // Adjust this function to dynamically generate colors based on the modularity class
     // Here's a simple example using HSL color space to ensure diverse colors, excluding yellow
     var excludedColor = '#FFD700'; // Yellow color code
@@ -196,15 +233,14 @@ function showSelectedNodes(selected) {
 
 // Toggle select a node
 function nodeSelect(s, selected) {
-    // Making sure we have at least one node selected
+    // Reset graph to default state before applying new selections
+    resetStates(s);
+
     if (Object.keys(selected).length > 0) {
         var toKeep = nodesToKeep(s, selected);
 
         setSelectedColor(s, selected, toKeep);
-        // Grey out irrelevant edges 
         setEdgesToInactive(s, toKeep);
-    } else { // If no nodes are selected after click we just reset the graph
-        resetStates(s);
     }
     showSelectedNodes(selected);
     s.refresh();
